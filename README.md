@@ -8,6 +8,8 @@ Geometric Mask: It uses np.polyfit to find the linear equations for the three si
 Combined Result: 
         The final output (color_select) blacks out pixels that are either too dark ($\mathbf{color\_thresholds}$ is True) OR outside the ROI ($\mathbf{\sim region\_thresholds}$ is True).
 This highlights bright objects (like lane lines) only within the intended viewing area.
+
+
 <img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/fd8a85d7-bd02-487b-b783-5904cead6ba6" />
 <img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/86115fc0-59fe-495b-b7a4-448f0406012d" />
 <img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/de77eaa0-faff-4a07-a701-55e7e01f5017" />
