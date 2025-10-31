@@ -8,6 +8,11 @@ Geometric Mask: It uses np.polyfit to find the linear equations for the three si
 Combined Result: 
         The final output (color_select) blacks out pixels that are either too dark ($\mathbf{color\_thresholds}$ is True) OR outside the ROI ($\mathbf{\sim region\_thresholds}$ is True).
 This highlights bright objects (like lane lines) only within the intended viewing area.
+<img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/fd8a85d7-bd02-487b-b783-5904cead6ba6" />
+<img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/86115fc0-59fe-495b-b7a4-448f0406012d" />
+<img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/de77eaa0-faff-4a07-a701-55e7e01f5017" />
+
+
 
 Stage Two: Edge Detection and Basic Hough TransformThe middle sections transition to the standard computer vision approach using Canny and Hough on an image (solidYellowLeft.jpg).
 Preprocessing:  
@@ -18,7 +23,11 @@ ROI Masking:
           The same triangular Region of Interest is applied to the Canny output using $\mathbf{cv2.fillPoly}$ and $\mathbf{cv2.bitwise\_and}$, keeping only the edges visible within the target area.
 Hough Transform: 
           The Probabilistic Hough Transform (cv2.HoughLinesP) is run on the masked edges to find straight line segments. These raw segments are then drawn onto a black image in red.
-          
+ 
+ <img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/6b21cd23-b94c-4465-82f2-b5c05db86b86" />
+ <img width="552" height="345" alt="image" src="https://github.com/user-attachments/assets/0a033577-7d48-447c-9568-b0e8017a95c2" />
+
+         
 Stage Three: 
          Full Function-Based Pipeline (Advanced Line Fitting)The final and most comprehensive section refines the process into a robust, reusable set of functions, incorporating advanced line smoothing
 Modular Pipeline:
@@ -29,3 +38,5 @@ Blending:
          The final output uses cv2.addWeighted to blend the original image with the processed image (containing the smoothed, highlighted lane lines), producing the final lane detection result.
 Batch Processing: 
           The code concludes by iterating through a directory of test images, applying the full lane_finding_pipeline to demonstrate its general applicability.
+<img width="1569" height="438" alt="image" src="https://github.com/user-attachments/assets/2e372be0-be12-491d-bfc6-5d30692c0aaa" />
+
